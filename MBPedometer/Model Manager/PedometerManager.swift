@@ -46,27 +46,33 @@ public class PedometerManager: NSObject {
   var stepsTaken:[Int] = []
   var distanceTravelled:[Float] = []
   
+  static let sharedInstance = PedometerManager()
+  
+  //Check whether your application supports step counting or not
   public func checkStepCountingAvailability() -> Bool {
     return(CMPedometer.isStepCountingAvailable())
   }
   
+  //Check whether your application supports floor counting or not
   public func checkFloorCountingAvailability() -> Bool {
     return(CMPedometer.isFloorCountingAvailable())
   }
-  
+  //Stop getting updates
+  public func stopCountingUpdates() {
+    self.pedoMeter.stopPedometerUpdates()
+  }
+  //Check whether your application supports activity tracking
   public func checkForMotionActivityAvailability() -> Bool {
     return (CMMotionActivityManager.isActivityAvailable())
   }
   
-  public func stopCountingUpdates() {
-    self.pedoMeter.stopPedometerUpdates()
-  }
-  
+  //Calculate Steps for specific intervels
   public func calculateStepsForInterval(#startDate:NSDate, endDate:NSDate,completionBlock:CompletionBlock) {
     var currentActivity = Activity(startDate: startDate, endDate: endDate)
     
     if(CMPedometer.isStepCountingAvailable()){
       self.pedoMeter.queryPedometerDataFromDate(startDate, toDate: endDate) { (activity : CMPedometerData!, error)  in
+        println(activity)
         dispatch_async(dispatch_get_main_queue(), { () in
           if(error == nil) {
             currentActivity.stepCount = activity.numberOfSteps

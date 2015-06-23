@@ -27,14 +27,12 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
   var endDate: NSDate?
   var cumulativeActivity: Activity!
   var activeTextField:UITextField!
-  var pedometerManager:PedometerManager!
   let activityManager = CMMotionActivityManager()
   
   //MARK: ViewController Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.pedometerManager = PedometerManager()
     self.title = "Home"
     self.setUpActivity()
   }
@@ -46,11 +44,11 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
       var currentStartDate = self.midnightOfToday(currentEndDate)
       
       //The following method increments the current status of the various acitivies
-      self.pedometerManager.calculateStepsForInterval(startDate:currentStartDate, endDate:currentEndDate) { (activity, error) -> Void in
+      PedometerManager.sharedInstance.calculateStepsForInterval(startDate:currentStartDate, endDate:currentEndDate) { (activity, error) -> Void in
         if (error == nil) {
           self.cumulativeActivity = activity!
           self.resultContainer.updateResultWithActiviy(activity!)
-          self.pedometerManager.startStepCounterFromDate(self.cumulativeActivity.endDate, completionBlock: { (currentActivity, error) -> Void in
+          PedometerManager.sharedInstance.startStepCounterFromDate(self.cumulativeActivity.endDate, completionBlock: { (currentActivity, error) -> Void in
             
             //Get current values of the activity
             var finalActivity = Activity(startDate: currentActivity!.startDate, endDate: currentActivity!.endDate)
@@ -72,7 +70,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
   
   override func viewDidDisappear(animated: Bool) {
     super.viewDidDisappear(animated)
-    pedometerManager.stopCountingUpdates()
+    PedometerManager.sharedInstance.stopCountingUpdates()
   }
   
   override func didReceiveMemoryWarning() {
@@ -109,7 +107,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
   
   @IBAction func calculateSteps(sender: AnyObject) {
     if (self.readyForCalulation()) {
-      self.pedometerManager.calculateStepsForInterval(startDate:self.startDate!, endDate: self.endDate!) { (activity, error) -> Void in
+      PedometerManager.sharedInstance.calculateStepsForInterval(startDate:self.startDate!, endDate: self.endDate!) { (activity, error) -> Void in
         self.previousDayResultContainer.updateResultWithActiviy(activity!)
         self.datePickerView.hidden = true
       }
@@ -158,10 +156,10 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
       self.showAlertWithMessage("End date should be later than start date.")
       shouldCalculateNow = false
     }
-    else if (!self.pedometerManager.checkStepCountingAvailability()) {
+    else if (!PedometerManager.sharedInstance.checkStepCountingAvailability()) {
       self.showAlertWithMessage("Step Counting Not Avaliable.")
       shouldCalculateNow = false
-    }else if (!self.pedometerManager.checkFloorCountingAvailability()) {
+    }else if (!PedometerManager.sharedInstance.checkFloorCountingAvailability()) {
       self.showAlertWithMessage("Floor Counting Not Avaliable.")
       shouldCalculateNow = true
     }

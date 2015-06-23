@@ -15,25 +15,23 @@ class HistoryViewController: UIViewController {
   var stepArray: [Int] = []
   var dateArray: [String] = []
   var distanceArray: [Float] = []
-  var pedometerManager:PedometerManager!
   
   @IBOutlet weak var historyTableView: UITableView!
   
   override func viewDidLoad() {
     
     super.viewDidLoad()
-    self.pedometerManager = PedometerManager()// Create Instance of Pedometer
     // Do any additional setup after loading the view.
   }
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
     //Get history and reload table
-    self.pedometerManager.getHistory { (stepArray, dateArray, distanceArray,error) -> Void in
+    PedometerManager.sharedInstance.getHistory { (stepArray, dateArray, distanceArray,error) -> Void in
       if error == nil {
         self.stepArray = stepArray!
-        self.dateArray = dateArray
-        self.distanceArray = distanceArray
+        self.dateArray = dateArray!
+        self.distanceArray = distanceArray!
         self.historyTableView.reloadData()
       }
       else if (error?.code == 105) {
