@@ -94,7 +94,9 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     self.endDateTextField.backgroundColor = UIColor(red: 153/255.0, green: 204.0/255, blue: 255/255.0, alpha: 1)
     self.startDateTextField.backgroundColor = UIColor.clearColor()
     self.datePicker.maximumDate = NSDate()
+    self.datePicker.minimumDate = NSDate(timeIntervalSinceNow: -86400 * 7)
     self.datePickerView.hidden = false
+    
   }
   
   @IBAction func didTapStartDate(sender: AnyObject) {
@@ -102,6 +104,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     self.startDateTextField.backgroundColor = UIColor(red: 153/255.0, green: 204.0/255, blue: 255/255.0, alpha: 1)
     self.endDateTextField.backgroundColor = UIColor.clearColor()
     self.datePicker.minimumDate = NSDate(timeIntervalSinceNow: -86400 * 7)
+    self.datePicker.maximumDate = NSDate()
     self.datePickerView.hidden = false
   }
   
