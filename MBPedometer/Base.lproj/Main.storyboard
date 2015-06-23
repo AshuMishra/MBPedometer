@@ -107,7 +107,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="yM1-Xs-rha"/>
                                                 </constraints>
                                                 <state key="normal" title="Close">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.4989037965" green="0.32984323170000002" blue="0.68234202349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -135,7 +135,7 @@
                                                 </connections>
                                             </datePicker>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.4989037965" green="0.32984323170000002" blue="0.68234202349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="j4I-LW-fsK" secondAttribute="trailing" constant="10" id="BiW-e5-ng4"/>
                                             <constraint firstItem="Arg-Od-4nc" firstAttribute="top" secondItem="VgB-il-hAj" secondAttribute="topMargin" id="Jqk-sd-eFh"/>
