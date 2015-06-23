@@ -85,6 +85,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRl-Mh-HmR">
                                         <rect key="frame" x="225" y="341" width="150" height="30"/>
+                                        <color key="backgroundColor" red="0.4989037965" green="0.32984323170000002" blue="0.68234202349999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="emr-dt-BiD"/>
                                         </constraints>
