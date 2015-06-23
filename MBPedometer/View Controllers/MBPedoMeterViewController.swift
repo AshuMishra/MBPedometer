@@ -33,6 +33,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.pedometerManager = PedometerManager()
+    self.title = "Home"
     self.setUpActivity()
   }
   
@@ -197,6 +198,14 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
         MBUtility.changeViewToCircle(self.footImageView.layer, bordorWidth: 3.0, cornerRadius: self.footImageView.frame.size.height / 2, borderColor: UIColor(red: 219.0/255.0, green: 182.0/255.0, blue: 72.0/255.0, alpha: 1.0))
         
       })
+    }
+  }
+  
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    let touch = touches.first as? UITouch
+    var point = touch?.locationInView(self.view)
+    if (CGRectContainsPoint(self.datePickerView.frame, point!) == false) {
+      datePickerView.hidden = true
     }
   }
 }
