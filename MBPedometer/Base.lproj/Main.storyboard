@@ -106,6 +106,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="yM1-Xs-rha"/>
                                                 </constraints>
                                                 <state key="normal" title="Close">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -133,7 +134,7 @@
                                                 </connections>
                                             </datePicker>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.4989037965" green="0.32984323170000002" blue="0.68234202349999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="j4I-LW-fsK" secondAttribute="trailing" constant="10" id="BiW-e5-ng4"/>
                                             <constraint firstItem="Arg-Od-4nc" firstAttribute="top" secondItem="VgB-il-hAj" secondAttribute="topMargin" id="Jqk-sd-eFh"/>
@@ -201,8 +202,18 @@
                                             <constraint firstAttribute="height" constant="149" id="hDH-j8-Q0w"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kP-EH-Pzf" userLabel="ActivityStausLabel">
+                                        <rect key="frame" x="228" y="206" width="145" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="145" id="Wkp-dP-sGq"/>
+                                            <constraint firstAttribute="height" constant="30" id="vp9-lu-ohS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9F-zy-xgI" customClass="MBResultContainer" customModule="MBPedometer" customModuleProvider="target">
-                                        <rect key="frame" x="160" y="215" width="280" height="161"/>
+                                        <rect key="frame" x="160" y="246" width="280" height="161"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="eKf-jg-hVw"/>
@@ -219,14 +230,16 @@
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="V3Z-Bj-SO0" secondAttribute="centerX" id="0ks-47-mMA"/>
                                     <constraint firstAttribute="centerY" secondItem="V3Z-Bj-SO0" secondAttribute="centerY" id="9YW-vG-GWl"/>
+                                    <constraint firstItem="6kP-EH-Pzf" firstAttribute="top" secondItem="9GG-kn-dUf" secondAttribute="bottom" constant="10" id="EYe-JK-q9s"/>
+                                    <constraint firstItem="u9F-zy-xgI" firstAttribute="top" secondItem="6kP-EH-Pzf" secondAttribute="bottom" constant="10" id="I4V-kh-Hpg"/>
                                     <constraint firstItem="V3Z-Bj-SO0" firstAttribute="top" secondItem="9GG-kn-dUf" secondAttribute="bottom" constant="-196" id="IJY-6T-D9b"/>
+                                    <constraint firstAttribute="centerX" secondItem="6kP-EH-Pzf" secondAttribute="centerX" id="NgA-9b-wjE"/>
                                     <constraint firstItem="u9F-zy-xgI" firstAttribute="height" secondItem="V6S-re-4t2" secondAttribute="height" multiplier="0.33" id="cTl-7y-WIb"/>
                                     <constraint firstAttribute="centerX" secondItem="9GG-kn-dUf" secondAttribute="centerX" id="fHN-8A-Tve"/>
                                     <constraint firstAttribute="bottom" secondItem="V3Z-Bj-SO0" secondAttribute="bottom" id="hI5-Wo-NpN"/>
                                     <constraint firstItem="V3Z-Bj-SO0" firstAttribute="top" secondItem="V6S-re-4t2" secondAttribute="top" id="jyN-gz-KKM"/>
                                     <constraint firstAttribute="centerX" secondItem="u9F-zy-xgI" secondAttribute="centerX" id="u8y-9q-yhh"/>
                                     <constraint firstAttribute="trailing" secondItem="V3Z-Bj-SO0" secondAttribute="trailing" id="wXX-MU-mrB"/>
-                                    <constraint firstItem="u9F-zy-xgI" firstAttribute="top" secondItem="V6S-re-4t2" secondAttribute="top" constant="215" id="ycg-76-si5"/>
                                     <constraint firstItem="V3Z-Bj-SO0" firstAttribute="leading" secondItem="V6S-re-4t2" secondAttribute="leading" id="yej-Ep-Bk3"/>
                                 </constraints>
                             </view>
@@ -284,6 +297,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pedometer" id="LRe-YD-Jwx"/>
                     <connections>
+                        <outlet property="activityStatusLabel" destination="6kP-EH-Pzf" id="Ugl-8q-j13"/>
                         <outlet property="datePicker" destination="j4I-LW-fsK" id="tJv-JW-Wp7"/>
                         <outlet property="datePickerView" destination="VgB-il-hAj" id="AJp-sU-gMp"/>
                         <outlet property="endDateTextField" destination="IUu-JB-UdC" id="PyW-fy-sMI"/>
