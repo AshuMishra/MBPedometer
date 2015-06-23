@@ -30,6 +30,8 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
   var pedometerManager:PedometerManager!
   let activityManager = CMMotionActivityManager()
   
+  //MARK: ViewController Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.pedometerManager = PedometerManager()
@@ -73,6 +75,8 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     // Dispose of any resources that can be recreated.
   }
   
+  //MARK: IBActions
+  
   @IBAction func didSelectDate(sender: AnyObject) {
     self.activeTextField.text = formatDate(self.datePicker.date)
     if (self.activeTextField.isEqual(self.startDateTextField)) {
@@ -80,14 +84,6 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     }else {
       self.endDate = self.datePicker.date
     }
-  }
-  
-  func formatDate(date:NSDate)->(String!) {
-    var dataFormatter:NSDateFormatter? = NSDateFormatter()
-    dataFormatter?.dateFormat = "MM'/'dd'/'yyyy HH:mm"
-    
-    var formattedDate:String? = dataFormatter!.stringFromDate(date)
-    return formattedDate
   }
   
   @IBAction func didTapEndTap(sender: UIButton) {
@@ -115,6 +111,36 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
       }
     }
   }
+  
+  @IBAction func didChangeSegment(sender: UISegmentedControl) {
+    switch(sender.selectedSegmentIndex){
+    case 0:
+      self.todayUpdatesView.hidden = false
+      self.previousUpdatesView.hidden = true
+    case 1:
+      self.todayUpdatesView.hidden = true
+      self.previousUpdatesView.hidden = false
+    default:
+      self.todayUpdatesView.hidden = false
+      self.previousUpdatesView.hidden = false
+    }
+  }
+  
+  @IBAction func didTapPickerClose(sender: AnyObject) {
+    self.datePickerView.hidden = true
+  }
+  
+  //MARK: Touch Handlers
+  
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    let touch = touches.first as? UITouch
+    var point = touch?.locationInView(self.view)
+    if (CGRectContainsPoint(self.datePickerView.frame, point!) == false) {
+      datePickerView.hidden = true //Hide datepicker when tapped outside of date picker
+    }
+  }
+  
+  //MARK:Private Helpers
   
   func readyForCalulation() -> Bool {
     var shouldCalculateNow = true
@@ -144,37 +170,6 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     self.presentViewController(alertController, animated: true, completion: nil)
   }
   
-  @IBAction func didChangeSegment(sender: UISegmentedControl) {
-    switch(sender.selectedSegmentIndex){
-    case 0:
-      self.todayUpdatesView.hidden = false
-      self.previousUpdatesView.hidden = true
-    case 1:
-      self.todayUpdatesView.hidden = true
-      self.previousUpdatesView.hidden = false
-    default:
-      self.todayUpdatesView.hidden = false
-      self.previousUpdatesView.hidden = false
-    }
-  }
-  
-  @IBAction func didTapPickerClose(sender: AnyObject) {
-    self.datePickerView.hidden = true
-  }
-  
-  func midnightOfToday(date:NSDate) -> (NSDate) {
-    let cal = NSCalendar.currentCalendar()
-    let comps = cal.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: NSDate())
-    
-    comps.hour = 0
-    comps.minute = 0
-    comps.second = 0
-    let timeZone = NSTimeZone.systemTimeZone()
-    cal.timeZone = timeZone
-    
-    return cal.dateFromComponents(comps)!
-  }
-  
   func setUpActivity() {
     
     if(CMMotionActivityManager.isActivityAvailable()) {
@@ -201,12 +196,26 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     }
   }
   
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    let touch = touches.first as? UITouch
-    var point = touch?.locationInView(self.view)
-    if (CGRectContainsPoint(self.datePickerView.frame, point!) == false) {
-      datePickerView.hidden = true
-    }
+  func formatDate(date:NSDate)->(String!) {
+    var dataFormatter:NSDateFormatter? = NSDateFormatter()
+    dataFormatter?.dateFormat = "MM'/'dd'/'yyyy HH:mm"
+    
+    var formattedDate:String? = dataFormatter!.stringFromDate(date)
+    return formattedDate
   }
+  
+  func midnightOfToday(date:NSDate) -> (NSDate) {
+    let cal = NSCalendar.currentCalendar()
+    let comps = cal.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: NSDate())
+    
+    comps.hour = 0
+    comps.minute = 0
+    comps.second = 0
+    let timeZone = NSTimeZone.systemTimeZone()
+    cal.timeZone = timeZone
+    
+    return cal.dateFromComponents(comps)!
+  }
+
 }
 

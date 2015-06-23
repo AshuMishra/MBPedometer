@@ -41,7 +41,6 @@ class HistoryViewController: UIViewController {
       }
     }
     
-    
   }
   
   override func didReceiveMemoryWarning() {
