@@ -24,6 +24,5 @@ public class MBResultContainer: UIView {
 		self.resultView.updateView(distanceString,stepCount:  activity.stepCount.stringValue,
 										ascendedFloorsCount: activity.floorsAscended.stringValue,
 									   descendedFloorsCount: activity.floorsDescended.stringValue)
-		}
-	
+  }
 }
