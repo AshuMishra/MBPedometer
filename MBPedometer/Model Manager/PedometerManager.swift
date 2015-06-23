@@ -13,7 +13,7 @@ enum DataSourceType {
   case DataSourceTypeHealthKit, DataSourceTypeCoreMotion
 }
 
-
+//Activity Structure to be passed
 public struct Activity {
   
   var startDate : NSDate
@@ -34,8 +34,7 @@ public struct Activity {
 }
 
 public typealias CompletionBlock = (Activity?,NSError?) -> Void
-public typealias CompletionBlock_History = (stepsAraay: Array<Int>?, dateArray: Array<String>, distanceArray: Array<Float>, NSError?) -> Void
-public typealias MotionUpdateCompletionBlock = (CMMotionActivity?)
+public typealias CompletionBlock_History = (stepsAraay: Array<Int>?, dateArray: Array<String>?, distanceArray: Array<Float>?, NSError?) -> Void
 
 public class PedometerManager: NSObject {
   
@@ -89,30 +88,29 @@ public class PedometerManager: NSObject {
     }
   }
   
-  
+  //Count steps for live updates
   public func startStepCounterFromDate(date:NSDate, completionBlock:CompletionBlock) {
     var currentActivity = Activity(startDate: date,endDate: NSDate())
     self.pedoMeter.startPedometerUpdatesFromDate(date, withHandler: { (data: CMPedometerData!, error) -> Void in
-      currentActivity.startDate = data.startDate
-      currentActivity.endDate = data.endDate
-      currentActivity.stepCount = data.numberOfSteps
-      currentActivity.distanceCovered = data.distance
-      currentActivity.floorsAscended = data.floorsAscended
-      currentActivity.floorsDescended = data.floorsDescended
-      completionBlock(currentActivity, nil)
+      if (error == nil) {
+        currentActivity.startDate = data.startDate
+        currentActivity.endDate = data.endDate
+        currentActivity.stepCount = data.numberOfSteps
+        currentActivity.distanceCovered = data.distance
+        currentActivity.floorsAscended = data.floorsAscended
+        currentActivity.floorsDescended = data.floorsDescended
+        completionBlock(currentActivity, nil)
+      }
+      else {
+        completionBlock(nil, error)
+      }
+      
       
     })
   }
   
-  public func startActivityUpdate(completionBlock:MotionUpdateCompletionBlock) {
-//    self.activityManager.startActivityUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: { (data: CMMotionActivity!) -> Void in
-//      var currentData = data
-//      dispatch_async(dispatch_get_main_queue(), { () in
-//          completionBlock(data)
-//      })
-//      )
-  }
   
+  //Get History of last 7 days
   func getHistory(completionBlock: CompletionBlock_History) {
     var serialQueue : dispatch_queue_t  = dispatch_queue_create("com.example.MyQueue", nil)
     let formatter = NSDateFormatter()
@@ -125,7 +123,6 @@ public class PedometerManager: NSObject {
       let dtStr = formatter.stringFromDate(toDate)
       self.pedoMeter.queryPedometerDataFromDate(fromDate, toDate: toDate) { (data : CMPedometerData!, error) in
         if(error == nil){
-          println("\(dtStr) : \(data.numberOfSteps)")
           self.days.append(dtStr)
           self.stepsTaken.append(Int(data.numberOfSteps))
           self.distanceTravelled.append(data.distance.floatValue)
@@ -135,6 +132,9 @@ public class PedometerManager: NSObject {
             })
             
           }
+        }
+        else {
+          completionBlock(stepsAraay: nil, dateArray: nil, distanceArray: nil, error)
         }
       }
       
