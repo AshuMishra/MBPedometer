@@ -45,16 +45,21 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
       var currentEndDate = NSDate()
       var currentStartDate = self.midnightOfToday(currentEndDate)
       
+      //The following method increments the current status of the various acitivies
       self.pedometerManager.calculateStepsForInterval(startDate:currentStartDate, endDate:currentEndDate) { (activity, error) -> Void in
         if (error == nil) {
           self.cumulativeActivity = activity!
           self.resultContainer.updateResultWithActiviy(activity!)
           self.pedometerManager.startStepCounterFromDate(self.cumulativeActivity.endDate, completionBlock: { (currentActivity, error) -> Void in
+            
+            //Get current values of the activity
             var finalActivity = Activity(startDate: currentActivity!.startDate, endDate: currentActivity!.endDate)
+            //Add newly fetched values
             finalActivity.stepCount = NSNumber(int:self.cumulativeActivity.stepCount.intValue + currentActivity!.stepCount.intValue)
             finalActivity.distanceCovered = NSNumber(double:self.cumulativeActivity.distanceCovered.doubleValue + currentActivity!.distanceCovered.doubleValue)
             finalActivity.floorsAscended = NSNumber(int:self.cumulativeActivity.floorsAscended.intValue + currentActivity!.floorsAscended.intValue)
             finalActivity.floorsDescended = NSNumber(int:self.cumulativeActivity.floorsDescended.intValue + currentActivity!.floorsDescended.intValue)
+            //update UI
             self.resultContainer.updateResultWithActiviy(finalActivity)
           })
         }
@@ -92,7 +97,6 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     self.startDateTextField.backgroundColor = UIColor.clearColor()
     self.datePicker.maximumDate = NSDate()
     self.datePickerView.hidden = false
-    
   }
   
   @IBAction func didTapStartDate(sender: AnyObject) {
@@ -142,6 +146,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
   
   //MARK:Private Helpers
   
+  //Check for condition before calculating steps
   func readyForCalulation() -> Bool {
     var shouldCalculateNow = true
     
@@ -163,6 +168,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     return shouldCalculateNow
   }
   
+  //Shows alert with custom messages
   func showAlertWithMessage(message:String!)->() {
     var	alertController = UIAlertController(title: "Error", message:message, preferredStyle: UIAlertControllerStyle.Alert)
     var action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
@@ -170,6 +176,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     self.presentViewController(alertController, animated: true, completion: nil)
   }
   
+  //Update imageView and status label according to the user's motion actvity
   func setUpActivity() {
     
     if(CMMotionActivityManager.isActivityAvailable()) {
@@ -196,6 +203,7 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     }
   }
   
+  //Format date string to be displayed on labels
   func formatDate(date:NSDate)->(String!) {
     var dataFormatter:NSDateFormatter? = NSDateFormatter()
     dataFormatter?.dateFormat = "MM'/'dd'/'yyyy HH:mm"
@@ -203,6 +211,8 @@ class MBPedoMeterViewController: UIViewController,UITextFieldDelegate {
     var formattedDate:String? = dataFormatter!.stringFromDate(date)
     return formattedDate
   }
+  
+  //Calculates midnight of today
   
   func midnightOfToday(date:NSDate) -> (NSDate) {
     let cal = NSCalendar.currentCalendar()
