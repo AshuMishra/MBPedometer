@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84081C6C1B38C379002004B4 /* foot image.png in Resources */ = {isa = PBXBuildFile; fileRef = 84081C681B38C379002004B4 /* foot image.png */; };
+		84081C6D1B38C379002004B4 /* History.png in Resources */ = {isa = PBXBuildFile; fileRef = 84081C691B38C379002004B4 /* History.png */; };
+		84081C6E1B38C379002004B4 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 84081C6A1B38C379002004B4 /* Home.png */; };
+		84081C6F1B38C379002004B4 /* shoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 84081C6B1B38C379002004B4 /* shoes.png */; };
+		84081C711B38C384002004B4 /* PedometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C701B38C384002004B4 /* PedometerManager.swift */; };
+		84081C731B38C398002004B4 /* MBResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84081C721B38C398002004B4 /* MBResultView.xib */; };
+		84081C761B38C3AA002004B4 /* MBHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C741B38C3AA002004B4 /* MBHistoryViewController.swift */; };
+		84081C771B38C3AA002004B4 /* MBPedoMeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C751B38C3AA002004B4 /* MBPedoMeterViewController.swift */; };
+		84081C791B38C3B8002004B4 /* MBHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C781B38C3B8002004B4 /* MBHistoryTableViewCell.swift */; };
+		84081C7B1B38C3C5002004B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C7A1B38C3C5002004B4 /* AppDelegate.swift */; };
+		84081C7E1B38C3DF002004B4 /* MBResultContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C7C1B38C3DF002004B4 /* MBResultContainer.swift */; };
+		84081C7F1B38C3DF002004B4 /* MBResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C7D1B38C3DF002004B4 /* MBResultView.swift */; };
+		84081C821B38C6F0002004B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84081C801B38C6F0002004B4 /* CoreGraphics.framework */; };
+		84081C831B38C6F0002004B4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84081C811B38C6F0002004B4 /* CoreMotion.framework */; };
+		84081C8A1B38C7CA002004B4 /* MBUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84081C891B38C7CA002004B4 /* MBUtility.swift */; };
+		847837501B36EF740062F8DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8478374E1B36EF740062F8DA /* Main.storyboard */; };
+		847837521B36EF740062F8DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847837511B36EF740062F8DA /* Images.xcassets */; };
+		847837551B36EF740062F8DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847837531B36EF740062F8DA /* LaunchScreen.xib */; };
+		847837611B36EF740062F8DA /* MBPedometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847837601B36EF740062F8DA /* MBPedometerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8478375B1B36EF740062F8DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8478373D1B36EF740062F8DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 847837441B36EF740062F8DA;
+			remoteInfo = MBPedometer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84081C681B38C379002004B4 /* foot image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "foot image.png"; path = "Images/foot image.png"; sourceTree = "<group>"; };
+		84081C691B38C379002004B4 /* History.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = History.png; path = Images/History.png; sourceTree = "<group>"; };
+		84081C6A1B38C379002004B4 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Home.png; path = Images/Home.png; sourceTree = "<group>"; };
+		84081C6B1B38C379002004B4 /* shoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoes.png; path = Images/shoes.png; sourceTree = "<group>"; };
+		84081C701B38C384002004B4 /* PedometerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PedometerManager.swift; path = "Model Manager/PedometerManager.swift"; sourceTree = "<group>"; };
+		84081C721B38C398002004B4 /* MBResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBResultView.xib; path = View/MBResultView.xib; sourceTree = "<group>"; };
+		84081C741B38C3AA002004B4 /* MBHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MBHistoryViewController.swift; path = "View Controllers/MBHistoryViewController.swift"; sourceTree = "<group>"; };
+		84081C751B38C3AA002004B4 /* MBPedoMeterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MBPedoMeterViewController.swift; path = "View Controllers/MBPedoMeterViewController.swift"; sourceTree = "<group>"; };
+		84081C781B38C3B8002004B4 /* MBHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MBHistoryTableViewCell.swift; path = "Custom Controller/MBHistoryTableViewCell.swift"; sourceTree = "<group>"; };
+		84081C7A1B38C3C5002004B4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Delegate/AppDelegate.swift; sourceTree = "<group>"; };
+		84081C7C1B38C3DF002004B4 /* MBResultContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MBResultContainer.swift; path = "Custom Controller/MBResultContainer.swift"; sourceTree = "<group>"; };
+		84081C7D1B38C3DF002004B4 /* MBResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MBResultView.swift; path = "Custom Controller/MBResultView.swift"; sourceTree = "<group>"; };
+		84081C801B38C6F0002004B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84081C811B38C6F0002004B4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		84081C891B38C7CA002004B4 /* MBUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MBUtility.swift; path = Utility/MBUtility.swift; sourceTree = "<group>"; };
+		847837451B36EF740062F8DA /* MBPedometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBPedometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		847837491B36EF740062F8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8478374F1B36EF740062F8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		847837511B36EF740062F8DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		847837541B36EF740062F8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8478375A1B36EF740062F8DA /* MBPedometerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MBPedometerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8478375F1B36EF740062F8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847837601B36EF740062F8DA /* MBPedometerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPedometerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		847837421B36EF740062F8DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84081C821B38C6F0002004B4 /* CoreGraphics.framework in Frameworks */,
+				84081C831B38C6F0002004B4 /* CoreMotion.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		847837571B36EF740062F8DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84081C5D1B38B3D1002004B4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				84081C681B38C379002004B4 /* foot image.png */,
+				84081C691B38C379002004B4 /* History.png */,
+				84081C6A1B38C379002004B4 /* Home.png */,
+				84081C6B1B38C379002004B4 /* shoes.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		84081C661B38C29A002004B4 /* Custom Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84081C7C1B38C3DF002004B4 /* MBResultContainer.swift */,
+				84081C7D1B38C3DF002004B4 /* MBResultView.swift */,
+			);
+			name = "Custom Controller";
+			sourceTree = "<group>";
+		};
+		84081C671B38C2C0002004B4 /* Model Manager */ = {
+			isa = PBXGroup;
+			children = (
+				84081C701B38C384002004B4 /* PedometerManager.swift */,
+			);
+			name = "Model Manager";
+			sourceTree = "<group>";
+		};
+		84081C841B38C6F7002004B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84081C801B38C6F0002004B4 /* CoreGraphics.framework */,
+				84081C811B38C6F0002004B4 /* CoreMotion.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		84081C861B38C784002004B4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				84081C891B38C7CA002004B4 /* MBUtility.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		8478373C1B36EF740062F8DA = {
+			isa = PBXGroup;
+			children = (
+				847837471B36EF740062F8DA /* MBPedometer */,
+				8478375D1B36EF740062F8DA /* MBPedometerTests */,
+				847837461B36EF740062F8DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		847837461B36EF740062F8DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				847837451B36EF740062F8DA /* MBPedometer.app */,
+				8478375A1B36EF740062F8DA /* MBPedometerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		847837471B36EF740062F8DA /* MBPedometer */ = {
+			isa = PBXGroup;
+			children = (
+				84081C861B38C784002004B4 /* Utility */,
+				8478376C1B36EFDE0062F8DA /* Delegate */,
+				8478376B1B36EFA50062F8DA /* Controller */,
+				8478376A1B36EF980062F8DA /* View */,
+				847837511B36EF740062F8DA /* Images.xcassets */,
+				84081C671B38C2C0002004B4 /* Model Manager */,
+				84081C841B38C6F7002004B4 /* Frameworks */,
+				847837481B36EF740062F8DA /* Supporting Files */,
+			);
+			path = MBPedometer;
+			sourceTree = "<group>";
+		};
+		847837481B36EF740062F8DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84081C5D1B38B3D1002004B4 /* Images */,
+				847837491B36EF740062F8DA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8478375D1B36EF740062F8DA /* MBPedometerTests */ = {
+			isa = PBXGroup;
+			children = (
+				847837601B36EF740062F8DA /* MBPedometerTests.swift */,
+				8478375E1B36EF740062F8DA /* Supporting Files */,
+			);
+			path = MBPedometerTests;
+			sourceTree = "<group>";
+		};
+		8478375E1B36EF740062F8DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8478375F1B36EF740062F8DA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8478376A1B36EF980062F8DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				847837531B36EF740062F8DA /* LaunchScreen.xib */,
+				8478374E1B36EF740062F8DA /* Main.storyboard */,
+				84081C721B38C398002004B4 /* MBResultView.xib */,
+				84081C661B38C29A002004B4 /* Custom Controller */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8478376B1B36EFA50062F8DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84081C741B38C3AA002004B4 /* MBHistoryViewController.swift */,
+				84081C781B38C3B8002004B4 /* MBHistoryTableViewCell.swift */,
+				84081C751B38C3AA002004B4 /* MBPedoMeterViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8478376C1B36EFDE0062F8DA /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				84081C7A1B38C3C5002004B4 /* AppDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		847837441B36EF740062F8DA /* MBPedometer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847837641B36EF740062F8DA /* Build configuration list for PBXNativeTarget "MBPedometer" */;
+			buildPhases = (
+				847837411B36EF740062F8DA /* Sources */,
+				847837421B36EF740062F8DA /* Frameworks */,
+				847837431B36EF740062F8DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MBPedometer;
+			productName = MBPedometer;
+			productReference = 847837451B36EF740062F8DA /* MBPedometer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		847837591B36EF740062F8DA /* MBPedometerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847837671B36EF740062F8DA /* Build configuration list for PBXNativeTarget "MBPedometerTests" */;
+			buildPhases = (
+				847837561B36EF740062F8DA /* Sources */,
+				847837571B36EF740062F8DA /* Frameworks */,
+				847837581B36EF740062F8DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8478375C1B36EF740062F8DA /* PBXTargetDependency */,
+			);
+			name = MBPedometerTests;
+			productName = MBPedometerTests;
+			productReference = 8478375A1B36EF740062F8DA /* MBPedometerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8478373D1B36EF740062F8DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Ashutosh;
+				TargetAttributes = {
+					847837441B36EF740062F8DA = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					847837591B36EF740062F8DA = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 847837441B36EF740062F8DA;
+					};
+				};
+			};
+			buildConfigurationList = 847837401B36EF740062F8DA /* Build configuration list for PBXProject "MBPedometer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8478373C1B36EF740062F8DA;
+			productRefGroup = 847837461B36EF740062F8DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				847837441B36EF740062F8DA /* MBPedometer */,
+				847837591B36EF740062F8DA /* MBPedometerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		847837431B36EF740062F8DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84081C6D1B38C379002004B4 /* History.png in Resources */,
+				847837501B36EF740062F8DA /* Main.storyboard in Resources */,
+				84081C731B38C398002004B4 /* MBResultView.xib in Resources */,
+				84081C6C1B38C379002004B4 /* foot image.png in Resources */,
+				847837551B36EF740062F8DA /* LaunchScreen.xib in Resources */,
+				847837521B36EF740062F8DA /* Images.xcassets in Resources */,
+				84081C6F1B38C379002004B4 /* shoes.png in Resources */,
+				84081C6E1B38C379002004B4 /* Home.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		847837581B36EF740062F8DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		847837411B36EF740062F8DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84081C761B38C3AA002004B4 /* MBHistoryViewController.swift in Sources */,
+				84081C711B38C384002004B4 /* PedometerManager.swift in Sources */,
+				84081C771B38C3AA002004B4 /* MBPedoMeterViewController.swift in Sources */,
+				84081C7E1B38C3DF002004B4 /* MBResultContainer.swift in Sources */,
+				84081C7B1B38C3C5002004B4 /* AppDelegate.swift in Sources */,
+				84081C8A1B38C7CA002004B4 /* MBUtility.swift in Sources */,
+				84081C7F1B38C3DF002004B4 /* MBResultView.swift in Sources */,
+				84081C791B38C3B8002004B4 /* MBHistoryTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		847837561B36EF740062F8DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847837611B36EF740062F8DA /* MBPedometerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8478375C1B36EF740062F8DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 847837441B36EF740062F8DA /* MBPedometer */;
+			targetProxy = 8478375B1B36EF740062F8DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8478374E1B36EF740062F8DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8478374F1B36EF740062F8DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		847837531B36EF740062F8DA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847837541B36EF740062F8DA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		847837621B36EF740062F8DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		847837631B36EF740062F8DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		847837651B36EF740062F8DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				INFOPLIST_FILE = MBPedometer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		847837661B36EF740062F8DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				INFOPLIST_FILE = MBPedometer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		847837681B36EF740062F8DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MBPedometerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MBPedometer.app/MBPedometer";
+			};
+			name = Debug;
+		};
+		847837691B36EF740062F8DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MBPedometerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MBPedometer.app/MBPedometer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		847837401B36EF740062F8DA /* Build configuration list for PBXProject "MBPedometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847837621B36EF740062F8DA /* Debug */,
+				847837631B36EF740062F8DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		847837641B36EF740062F8DA /* Build configuration list for PBXNativeTarget "MBPedometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847837651B36EF740062F8DA /* Debug */,
+				847837661B36EF740062F8DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		847837671B36EF740062F8DA /* Build configuration list for PBXNativeTarget "MBPedometerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847837681B36EF740062F8DA /* Debug */,
+				847837691B36EF740062F8DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8478373D1B36EF740062F8DA /* Project object */;
+}
